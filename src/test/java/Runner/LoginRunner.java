@@ -5,7 +5,11 @@ import io.cucumber.testng.CucumberOptions;
 @CucumberOptions(
         features = {"src/test/java/Feature/deneme.feature"},
         glue = {"Steps"},
-        dryRun = false
+        dryRun = false,
+        plugin = { "pretty",
+                "json:test-output/cucumber-reports/cucumber.json",
+                "html:test-output/cucumber-reports/cucumberreport.html",
+                "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"}
 )
 public class LoginRunner  extends AbstractTestNGCucumberTests {
 
